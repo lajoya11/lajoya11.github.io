@@ -1,354 +1,237 @@
-/* Style.css - Professional Redesign */
+/* Style.css - Final Clean & Modern Design (v3 - Polished Details Section) */
 
-/* استيراد خطوط ويب حديثة: Noto Kufi Arabic للعربية و Inter للإنجليزية والأرقام */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap');
 
-/* متغيرات الألوان والتنسيق */
+/* =====================================================
+   1. الإعدادات الأساسية والمتغيرات
+   ===================================================== */
+
 :root {
-    --primary-color: #3B82F6; /* Modern Blue */
-    --accent-color: #10B981; /* Emerald/Green Accent */
-    --dark-bg: #111827; /* Dark Gray for Header/Footer */
-    --light-bg: #F9FAFB; /* Off-white background */
-    --card-bg: #FFFFFF; /* White for cards */
-    --text-color: #374151;
-    --border-color: #E5E7EB;
-    --error-color: #EF4444;
-    --success-bg: #D1FAE5;
-    --success-text: #065F46;
+    --bg-color: #F8F9FA; --card-bg: #FFFFFF; --border-color: #E5E7EB;
+    --shadow-color: rgba(0, 0, 0, 0.05); --text-color: #374151; --heading-color: #111827;
+    --input-bg: #FFFFFF; --primary-color: #4F46E5; --accent-color: #10B981; --error-color: #EF4444;
+    --details-well-bg: #F0F2F5; /* لون جديد لخلفية التفاصيل */
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.dark-mode {
+    --bg-color: #121212; --card-bg: #1E1E1E; --border-color: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.2); --text-color: #E5E7EB; --heading-color: #FFFFFF;
+    --input-bg: #272727;
+    --details-well-bg: #181818; /* لون جديد لخلفية التفاصيل في الوضع الداكن */
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
-    direction: rtl;
-    line-height: 1.6;
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    /* ضمان بقاء التذييل في الأسفل */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.container {
-    max-width: 1280px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* Typography */
-h2, h3, h4 {
-    color: var(--dark-bg);
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-
-/* Header and Navigation (Sticky Header) */
-header {
-    background: var(--dark-bg);
-    color: #FFFFFF;
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-header h1 {
-    color: #FFFFFF;
-    font-size: 1.5rem;
-    margin-bottom: 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #D1D5DB;
-    padding: 8px 12px;
-    border-radius: 5px;
+    font-family: 'Noto Kufi Arabic', 'Inter', sans-serif; direction: rtl;
+    background-color: var(--bg-color); color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
 
-nav ul li a:hover, nav ul li a.active {
-    background-color: var(--primary-color);
-    color: #FFFFFF;
-    text-decoration: none;
-}
+.container { max-width: 1280px; margin: auto; padding: 0 20px; }
 
-/* Main Content */
-main {
-    flex: 1; /* لدفع التذييل للأسفل */
-    padding: 40px 0;
-}
+/* =====================================================
+   2. الترويسة والتنقل
+   ===================================================== */
 
-.content-box {
-    background: var(--card-bg);
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-}
-
-/* Footer */
-footer {
-    background: var(--dark-bg);
-    color: #9CA3AF;
-    text-align: center;
-    padding: 25px 0;
-}
-
-/* Tables (Responsive) */
-.table-container {
-    overflow-x: auto; /* للسماح بالتمرير الأفقي في الشاشات الصغيرة */
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
+header {
+    padding: 10px 0; position: sticky; top: 0; z-index: 1000;
+    background-color: color-mix(in srgb, var(--card-bg) 80%, transparent);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
-    padding: 15px 10px;
-    text-align: right;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+header .container { display: flex; justify-content: space-between; align-items: center; }
+header h1 { color: var(--heading-color); font-size: 1.5rem; }
+#theme-toggle {
+    background: none; border: none; font-size: 1.6rem; cursor: pointer;
+    line-height: 1; padding: 5px; margin-left: 15px; color: var(--text-color);
 }
 
-th {
-    background-color: var(--dark-bg);
-    color: white;
+/* --- تصميم قائمة الكمبيوتر --- */
+#main-nav ul { list-style: none; display: flex; gap: 10px; margin: 0; }
+#main-nav ul li a {
+    color: var(--text-color); text-decoration: none; font-weight: 600;
+    padding: 8px 12px; border-radius: 8px; transition: background-color 0.3s, color 0.3s;
 }
+#main-nav ul li a:hover, #main-nav ul li a.active { background-color: var(--primary-color); color: white; }
 
-/* تأثير عند التمرير على الصفوف (باستثناء صف التفاصيل) */
-tbody tr:not(.app-details):hover {
-    background-color: var(--light-bg);
+/* =====================================================
+   3. قائمة الموبايل (Simple Dropdown Menu)
+   ===================================================== */
+#nav-toggle { display: none; background: none; border: none; color: var(--heading-color); font-size: 1.8rem; cursor: pointer; padding: 0; }
+
+/* =====================================================
+   4. المحتوى العام، النماذج، والجداول
+   ===================================================== */
+
+main { padding: 40px 15px; }
+.content-box {
+    padding: 30px; margin-bottom: 30px; border-radius: 12px;
+    background-color: var(--card-bg); border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px var(--shadow-color); transition: all 0.3s ease;
 }
+.content-box:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow-color); }
 
-/* --- Forms and Inputs (متطلبات الوظيفة: تنسيق موحد) --- */
+footer { text-align: center; padding: 25px; margin-top: 20px; border-top: 1px solid var(--border-color); color: #6c757d; }
+.dark-mode footer { color: #8a9198; }
+h2 { color: var(--heading-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; }
 
-/* تنسيق التسميات (Labels) من مكان واحد */
-label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--dark-bg);
+/* Forms, Buttons, Tables, etc. */
+label { display: block; margin: 20px 0 8px 0; font-weight: 600; color: var(--text-color); }
+input[type="text"], input[type="url"], textarea, select {
+    width: 100%; padding: 12px 15px; border: 1px solid var(--border-color);
+    border-radius: 8px; background-color: var(--input-bg); transition: all 0.3s;
+    font-family: 'Inter', 'Noto Kufi Arabic', sans-serif; color: var(--text-color);
 }
-
-/* تنسيق عناصر الإدخال النصية من مكان واحد */
-input[type="text"],
-input[type="url"],
-textarea,
-select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background-color: var(--card-bg); /* اللون الموحد */
-    transition: border-color 0.3s;
-    /* ضمان استخدام الخط المناسب للمدخلات الإنجليزية */
-    font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
+input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+    outline: none; border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 25%, transparent);
 }
-
-/* تأثير عند التركيز (Focus) */
-input[type="text"]:focus,
-input[type="url"]:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(60, 130, 246, 0.2);
+input[type="submit"], input[type="reset"], button {
+    background: var(--primary-color); color: white; padding: 12px 25px;
+    border: none; border-radius: 8px; cursor: pointer; margin-top: 25px;
+    font-weight: 600; transition: all 0.2s ease;
 }
+input[type="submit"]:hover, button:hover { transform: translateY(-2px); box-shadow: 0 4px 10px color-mix(in srgb, var(--primary-color) 30%, transparent); }
+input[type="reset"] { background-color: #6c757d; }
+input[type="reset"]:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-/* Buttons */
-input[type="submit"],
-input[type="reset"],
-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 25px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-    font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
-}
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border-bottom: 1px solid var(--border-color); padding: 15px 10px; text-align: right; }
+th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var(--heading-color); }
+.dark-mode th { background-color: color-mix(in srgb, var(--bg-color) 50%, #000); }
 
-input[type="submit"]:hover,
-button:hover {
-    background-color: #2563EB;
-}
 
-input[type="reset"] {
-    background-color: #9CA3AF;
-}
-
-input[type="reset"]:hover {
-     background-color: #6B7280;
-}
-
-/* Validation Styles */
-.error-message {
-    color: var(--error-color);
-    font-size: 0.9em;
-    margin-top: 5px;
-    display: none;
-}
-
-input.invalid,
-select.invalid,
-textarea.invalid {
-    border-color: var(--error-color);
-    background-color: #FEF2F2;
-}
-
-.checkbox-container {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-.checkbox-container input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    accent-color: var(--primary-color);
-}
-.checkbox-container label {
-    display: inline;
-    margin-top: 0;
-    font-weight: normal;
-}
-
-/* --- Application Details (apps.html) --- */
-
-/* إخفاء التفاصيل افتراضياً */
+/* =====================================================
+   5. قسم التفاصيل (Polished App Details Section)
+   ===================================================== */
 .app-details {
     display: none;
-    background-color: #F3F4F6;
+    /* إزالة الخلفية من الصف نفسه لنتحكم بها من الحاوية الداخلية */
 }
-
 .app-details td {
-     border-top: 3px solid var(--primary-color);
-     padding: 0;
+    padding: 0;
+    border: 0;
 }
-
-/* Details Container Layout (Flexbox) */
 .details-container {
+    background-color: var(--details-well-bg);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 10px 0; /* إضافة هامش علوي وسفلي */
     display: flex;
     flex-wrap: wrap;
-    padding: 25px;
     gap: 30px;
+    border-top: 3px solid var(--primary-color);
 }
-
+.details-container h4 {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--heading-color);
+}
 .details-info {
     flex: 1;
     min-width: 300px;
 }
-
+.details-info p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+.details-info strong {
+    color: color-mix(in srgb, var(--text-color) 80%, transparent); /* جعل العنوان أفتح قليلاً */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.details-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+}
+.details-info a:hover {
+    text-decoration: underline;
+}
 .details-media {
     flex: 1;
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
-
-/* Media Styling */
+.details-media p {
+    font-weight: 600;
+    color: color-mix(in srgb, var(--text-color) 80%, transparent);
+    margin-bottom: 10px;
+}
 .app-logo {
     max-width: 150px;
     height: auto;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: white;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
     padding: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
-
-/* حاوية متجاوبة للفيديو المضمن (iFrame) بنسبة 16:9 */
 .media-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     width: 100%;
     max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.media-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Toggle Button Styling */
-.toggle-details-btn {
-    background-color: var(--accent-color);
-    padding: 8px 15px;
-    margin-top: 0;
-    font-size: 0.9em;
-}
-
-.toggle-details-btn:hover {
-    background-color: #059669;
-}
-
-/* Status Message (Success) */
-.status-success {
-    background-color: var(--success-bg);
-    color: var(--success-text);
-    border: 1px solid #A7F3D0;
-    padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+.media-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
 }
 
-/* Responsive Design Adjustments */
+.toggle-details-btn { background-color: var(--accent-color); }
+
+/* =====================================================
+   6. التصميم المتجاوب (Responsive)
+   ===================================================== */
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
+    /* --- إظهار زر الهمبرغر وإخفاء قائمة الكمبيوتر --- */
+    #nav-toggle { display: block; }
+    #main-nav {
+        display: none; /* إخفاء القائمة افتراضياً */
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background-color: var(--card-bg);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 10px 20px var(--shadow-color);
     }
-    header h1 {
-        margin-bottom: 15px;
+    #main-nav ul { flex-direction: column; padding: 15px; gap: 5px; }
+    #main-nav ul li a { display: block; padding: 15px; }
+
+    /* Table to Cards Transformation */
+    #appsPage .content-box { border-radius: 0; box-shadow: none; border: none; background: transparent; padding: 0; margin: 0; }
+    #appsPage .content-box:hover { transform: none; box-shadow: none; }
+    #appsTable thead { display: none; }
+    #appsTable, #appsTable tbody, #appsTable tr:not(.app-details), #appsTable td { display: block; width: 100%; }
+    #appsTable tr:not(.app-details) {
+        margin: 0 0 20px 0; border-radius: 12px; overflow: hidden;
+        border: 1px solid var(--border-color); background-color: var(--card-bg);
+        box-shadow: 0 4px 15px var(--shadow-color);
     }
-    nav ul {
-        justify-content: center;
-    }
+    #appsTable td { border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+    #appsTable tr:not(.app-details) td:last-child { border-bottom: none; }
+    #appsTable td::before { content: attr(data-label); font-weight: bold; color: var(--heading-color); margin-left: 15px; text-align: right; }
+    .app-details { margin: -20px 0 20px 0; }
+    .app-details.td { padding: 0; }
+    .details-container { margin: 0; border-radius: 0 0 12px 12px; }
 }
+
+/* --- (إضافة من الطلب السابق) --- */
+/* Styling for the 'isFree' checkbox */
+.checkbox-container {
+    margin-top: 25px; display: flex; align-items: center;
+    padding: 10px; border-radius: 8px;
+    background-color: var(--input-bg); border: 1px solid var(--border-color);
+}
+.checkbox-container input[type="checkbox"] { width: 20px; height: 20px; margin-left: 12px; flex-shrink: 0; }
+.checkbox-container label { margin: 0; font-weight: 500; }
