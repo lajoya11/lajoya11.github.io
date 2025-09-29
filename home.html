@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الرئيسية - تطبيقات الذكاء الاصطناعي</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1>موقع التعريف بتطبيقات الذكاء الاصطناعي</h1>
-            <nav>
+            <h1>تطبيقات الذكاء الاصطناعي</h1>
+            <button id="nav-toggle" aria-label="فتح القائمة">☰</button>
+             <nav id="main-nav">
                 <ul>
-                    <li><a href="home.html">الرئيسية</a></li>
+                    <li><a href="home.html" class="active">الرئيسية</a></li>
                     <li><a href="AboutUs.html">من نحن</a></li>
                     <li><a href="apps.html">التطبيقات</a></li>
-                    <li><a href="add_app.html">إضافة تطبيق جديد</a></li>
+                    <li><a href="add_app.html">إضافة تطبيق</a></li>
                 </ul>
             </nav>
         </div>
@@ -24,10 +25,11 @@
 
     <main>
         <div class="container">
-            <h2>الصفحة الرئيسية</h2>
+            <h2>معلومات الوظيفة</h2>
 
             <div class="content-box">
                 <h3>أعضاء المجموعة</h3>
+                <div class="table-container">
                 <table>
                     <thead>
                         <tr>
@@ -37,44 +39,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>احمد ناصر طقطق</td>
-                            <td>ahmad naser taq taq</td>
-                            <td>ahmad_216276</td>
-                        </tr>
-                        <tr>
-                            <td>نورهان سمير حسن</td>
-                            <td>nourhan hassan</td>
-                            <td>nourhan_240563</td>
-                        </tr>
-                        <tr>
-                            <td>محمد زياد سكر</td>
-                            <td>mohammad ziad sukar</td>
-                            <td>mohammad_255016</td>
-                        </tr>
-                         <tr>
-                            <td>اسم الطالب 4</td>
-                            <td>Student Name 4</td>
-                            <td>444444</td>
-                        </tr>
-                         <tr>
-                            <td>اسم الطالب 5</td>
-                            <td>Student Name 5</td>
-                            <td>555555</td>
-                        </tr>
+                        <tr><td>احمد ناصر طقطق</td><td>Ahmad_216276</td><td>C1</td></tr>
+                        <tr><td>محمد زياد سكر</td><td>mohammad_255016</td><td>C1</td></tr>
+                        <tr><td>نورهان سمير حسن</td><td>nourhan_240563</td><td>C1</td></tr>
+                        <tr><td>مصطفى عبد</td><td>mostfa abd</td><td>444444</td></tr>
+                        <tr><td>اسم الطالب 5</td><td>Student Name 5</td><td>555555</td></tr>
                     </tbody>
                 </table>
+                </div>
             </div>
 
             <div class="content-box">
                 <h3>رابط النشر على الإنترنت</h3>
-                <p><a href="https://link-to-hosted-site.com" target="_blank" dir="ltr">الرابط سيضاف هنا بعد النشر</a></p>
+                <p><a href="https://lajoya11.github.io/home.html" target="_blank" dir="ltr">الرابط</a></p>
             </div>
 
              <div class="content-box">
-                <h3>ملاحظات</h3>
-                <p>تم استخدام التخزين المحلي (LocalStorage) لحفظ البيانات نظراً لعدم استخدام برمجة طرف المخدم، وذلك لتلبية متطلبات نقل البيانات بين الصفحات.</p>
-                <p>تم استخدام مكتبة JQuery لتنفيذ العمليات التفاعلية والتحقق من المدخلات.</p>
+                <h3>ملاحظات تقنية</h3>
+                <p>تم استخدام التخزين المحلي (LocalStorage) لحفظ البيانات نظراً لعدم استخدام برمجة طرف المخدم.</p>
+                <p>تم استخدام مكتبة JQuery لتنفيذ العمليات التفاعلية (مثل قائمة الموبايل وإخفاء/إظهار التفاصيل) والتحقق من المدخلات.</p>
+                 <p>التصميم متجاوب (Responsive) ويدعم العمل على الأجهزة المحمولة.</p>
             </div>
         </div>
     </main>
@@ -88,5 +72,4 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="myFunctions.js"></script>
 </body>
-
 </html>
