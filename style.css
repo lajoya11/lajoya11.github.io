@@ -1,4 +1,4 @@
-/* Style.css - Final Clean & Modern Design (v3 - Polished Details Section) */
+/* Style.css - Final Clean & Modern Design (v5 - Generic Responsive Tables) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap');
 
@@ -10,14 +10,14 @@
     --bg-color: #F8F9FA; --card-bg: #FFFFFF; --border-color: #E5E7EB;
     --shadow-color: rgba(0, 0, 0, 0.05); --text-color: #374151; --heading-color: #111827;
     --input-bg: #FFFFFF; --primary-color: #4F46E5; --accent-color: #10B981; --error-color: #EF4444;
-    --details-well-bg: #F0F2F5; /* لون جديد لخلفية التفاصيل */
+    --details-well-bg: #F0F2F5;
 }
 
 .dark-mode {
     --bg-color: #121212; --card-bg: #1E1E1E; --border-color: #374151;
     --shadow-color: rgba(0, 0, 0, 0.2); --text-color: #E5E7EB; --heading-color: #FFFFFF;
     --input-bg: #272727;
-    --details-well-bg: #181818; /* لون جديد لخلفية التفاصيل في الوضع الداكن */
+    --details-well-bg: #181818;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -103,131 +103,102 @@ th, td { border-bottom: 1px solid var(--border-color); padding: 15px 10px; text-
 th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var(--heading-color); }
 .dark-mode th { background-color: color-mix(in srgb, var(--bg-color) 50%, #000); }
 
-
 /* =====================================================
    5. قسم التفاصيل (Polished App Details Section)
    ===================================================== */
-.app-details {
-    display: none;
-    /* إزالة الخلفية من الصف نفسه لنتحكم بها من الحاوية الداخلية */
-}
-.app-details td {
-    padding: 0;
-    border: 0;
-}
+.app-details { display: none; }
+.app-details td { padding: 0; border: 0; }
 .details-container {
-    background-color: var(--details-well-bg);
-    padding: 30px;
-    border-radius: 12px;
-    margin: 10px 0; /* إضافة هامش علوي وسفلي */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    border-top: 3px solid var(--primary-color);
+    background-color: var(--details-well-bg); padding: 30px;
+    border-radius: 12px; margin: 10px 0; display: flex;
+    flex-wrap: wrap; gap: 30px; border-top: 3px solid var(--primary-color);
 }
-.details-container h4 {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-    color: var(--heading-color);
-}
-.details-info {
-    flex: 1;
-    min-width: 300px;
-}
-.details-info p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-.details-info strong {
-    color: color-mix(in srgb, var(--text-color) 80%, transparent); /* جعل العنوان أفتح قليلاً */
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-.details-info a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    word-break: break-all;
-}
-.details-info a:hover {
-    text-decoration: underline;
-}
-.details-media {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-}
-.details-media p {
-    font-weight: 600;
-    color: color-mix(in srgb, var(--text-color) 80%, transparent);
-    margin-bottom: 10px;
-}
+.details-container h4 { width: 100%; margin-bottom: 10px; font-size: 1.4rem; color: var(--heading-color); }
+.details-info { flex: 1; min-width: 300px; }
+.details-info p { margin-bottom: 1rem; line-height: 1.7; }
+.details-info strong { color: color-mix(in srgb, var(--text-color) 80%, transparent); display: block; margin-bottom: 5px; font-weight: 600; }
+.details-info a { color: var(--primary-color); text-decoration: none; font-weight: 600; word-break: break-all; }
+.details-info a:hover { text-decoration: underline; }
+.details-media { flex: 1; min-width: 300px; display: flex; flex-direction: column; }
+.details-media p { font-weight: 600; color: color-mix(in srgb, var(--text-color) 80%, transparent); margin-bottom: 10px; }
 .app-logo {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    padding: 10px;
-    background-color: var(--card-bg);
+    max-width: 150px; height: auto; margin-bottom: 25px; border-radius: 10px;
+    border: 1px solid var(--border-color); padding: 10px; background-color: var(--card-bg);
     box-shadow: 0 2px 5px var(--shadow-color);
 }
 .media-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
+    position: relative; padding-bottom: 56.25%; height: 0;
+    overflow: hidden; width: 100%; max-width: 600px;
+    border-radius: 10px; border: 1px solid var(--border-color);
 }
-.media-wrapper iframe {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-}
-
+.media-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .toggle-details-btn { background-color: var(--accent-color); }
 
 /* =====================================================
    6. التصميم المتجاوب (Responsive)
    ===================================================== */
 @media (max-width: 768px) {
-    /* --- إظهار زر الهمبرغر وإخفاء قائمة الكمبيوتر --- */
+    /* --- Mobile Navigation --- */
     #nav-toggle { display: block; }
     #main-nav {
-        display: none; /* إخفاء القائمة افتراضياً */
-        position: absolute;
+        display: none; position: absolute;
         top: 100%; left: 0; right: 0;
-        background-color: var(--card-bg);
-        border-bottom: 1px solid var(--border-color);
+        background-color: var(--card-bg); border-bottom: 1px solid var(--border-color);
         box-shadow: 0 10px 20px var(--shadow-color);
     }
     #main-nav ul { flex-direction: column; padding: 15px; gap: 5px; }
     #main-nav ul li a { display: block; padding: 15px; }
 
-    /* Table to Cards Transformation */
-    #appsPage .content-box { border-radius: 0; box-shadow: none; border: none; background: transparent; padding: 0; margin: 0; }
-    #appsPage .content-box:hover { transform: none; box-shadow: none; }
-    #appsTable thead { display: none; }
-    #appsTable, #appsTable tbody, #appsTable tr:not(.app-details), #appsTable td { display: block; width: 100%; }
-    #appsTable tr:not(.app-details) {
-        margin: 0 0 20px 0; border-radius: 12px; overflow: hidden;
-        border: 1px solid var(--border-color); background-color: var(--card-bg);
+    /* --- ** تم التعديل هنا ** --- */
+    /* --- Generic Table to Cards Transformation --- */
+    .table-container table thead {
+        display: none;
+    }
+    .table-container table,
+    .table-container table tbody,
+    .table-container table tr,
+    .table-container table td {
+        display: block;
+        width: 100%;
+    }
+    .table-container table tr:not(.app-details) {
+        margin: 0 0 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background-color: var(--card-bg);
         box-shadow: 0 4px 15px var(--shadow-color);
     }
-    #appsTable td { border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-    #appsTable tr:not(.app-details) td:last-child { border-bottom: none; }
-    #appsTable td::before { content: attr(data-label); font-weight: bold; color: var(--heading-color); margin-left: 15px; text-align: right; }
+    .table-container table td {
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        text-align: left;
+    }
+    .table-container table tr:not(.app-details) td:last-child {
+        border-bottom: none;
+    }
+    .table-container table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--heading-color);
+        margin-left: 15px;
+        text-align: right;
+    }
+    
+    #appsPage .content-box { border-radius: 0; box-shadow: none; border: none; background: transparent; padding: 0; margin: 0; }
+    #appsPage .content-box:hover { transform: none; box-shadow: none; }
+    
     .app-details { margin: -20px 0 20px 0; }
     .app-details.td { padding: 0; }
     .details-container { margin: 0; border-radius: 0 0 12px 12px; }
 }
 
-/* --- (إضافة من الطلب السابق) --- */
-/* Styling for the 'isFree' checkbox */
+/* =====================================================
+   7. إضافات متنوعة
+   ===================================================== */
 .checkbox-container {
     margin-top: 25px; display: flex; align-items: center;
     padding: 10px; border-radius: 8px;
