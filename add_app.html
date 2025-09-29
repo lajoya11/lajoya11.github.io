@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة تطبيق - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>موقع التعريف بتطبيقات الذكاء الاصطناعي</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">الرئيسية</a></li>
+                    <li><a href="AboutUs.html">من نحن</a></li>
+                    <li><a href="apps.html">التطبيقات</a></li>
+                    <li><a href="add_app.html">إضافة تطبيق جديد</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>إدخال معلومات تطبيق جديد</h2>
+
+             <div class="content-box" id="validationStatus" style="display:none; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;">
+            </div>
+
+            <div class="content-box">
+                <form id="addAppForm">
+
+                    <label for="appName">اسم التطبيق (أحرف إنجليزية فقط، بدون فراغات):</label>
+                    <input type="text" id="appName" name="appName" required dir="ltr">
+                    <div class="error-message" id="appNameError"></div>
+
+                    <label for="developer">الشركة المصنعة (أحرف إنجليزية وأرقام):</label>
+                    <input type="text" id="developer" name="developer" required dir="ltr">
+                    <div class="error-message" id="developerError"></div>
+
+                    <label for="websiteUrl">الموقع الالكتروني (URL):</label>
+                    <input type="url" id="websiteUrl" name="websiteUrl" required placeholder="https://example.com" dir="ltr" pattern="https?://.+">
+                    <div class="error-message" id="websiteUrlError"></div>
+
+                    <label for="usageField">مجال الاستخدام (قائمة محددة مسبقاً):</label>
+                    <select id="usageField" name="usageField" required>
+                        <option value="">اختر مجالاً</option>
+                        <option value="Education">Education (تعليم)</option>
+                        <option value="E-Commerce">E-Commerce (تجارة إلكترونية)</option>
+                        <option value="Robotics">Robotics (روبوتات)</option>
+                        <option value="Healthcare">Healthcare (صحة)</option>
+                        <option value="Art">Art (فن وتصميم)</option>
+                    </select>
+                    <div class="error-message" id="usageFieldError"></div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="isFree" name="isFree">
+                        <label for="isFree">التطبيق مجاني</label>
+                    </div>
+
+                    <label for="description">شرح مختصر عن التطبيق:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                    <div class="error-message" id="descriptionError"></div>
+
+                    <hr style="margin-top: 30px;">
+                    <h3>تفاصيل العرض (مطلوبة لصفحة التفاصيل)</h3>
+
+                    <label for="logoUrl">رابط صورة الشعار (Logo URL):</label>
+                    <input type="url" id="logoUrl" name="logoUrl" required placeholder="https://example.com/logo.png" dir="ltr" pattern="https?://.+">
+                    <div class="error-message" id="logoUrlError"></div>
+
+                    <label for="mediaUrl">رابط ملف صوتي أو فيديو (Media URL):</label>
+                    <input type="url" id="mediaUrl" name="mediaUrl" required placeholder="https://example.com/video.mp4" dir="ltr" pattern="https?://.+">
+                    <div class="error-message" id="mediaUrlError"></div>
+
+
+                    <div class="form-actions">
+                        <input type="submit" value="إرسال">
+                        <input type="reset" value="إعادة">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+         <div class="container">
+            <p>جميع الحقوق محفوظة © 2025 | مادة تصميم وتطوير تطبيقات الوب (SVU)</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="myFunctions.js"></script>
+</body>
+</html>

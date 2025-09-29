@@ -1,0 +1,354 @@
+/* Style.css - Professional Redesign */
+
+/* استيراد خطوط ويب حديثة: Noto Kufi Arabic للعربية و Inter للإنجليزية والأرقام */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap');
+
+/* متغيرات الألوان والتنسيق */
+:root {
+    --primary-color: #3B82F6; /* Modern Blue */
+    --accent-color: #10B981; /* Emerald/Green Accent */
+    --dark-bg: #111827; /* Dark Gray for Header/Footer */
+    --light-bg: #F9FAFB; /* Off-white background */
+    --card-bg: #FFFFFF; /* White for cards */
+    --text-color: #374151;
+    --border-color: #E5E7EB;
+    --error-color: #EF4444;
+    --success-bg: #D1FAE5;
+    --success-text: #065F46;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
+    direction: rtl;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    /* ضمان بقاء التذييل في الأسفل */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h2, h3, h4 {
+    color: var(--dark-bg);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header and Navigation (Sticky Header) */
+header {
+    background: var(--dark-bg);
+    color: #FFFFFF;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #D1D5DB;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* Main Content */
+main {
+    flex: 1; /* لدفع التذييل للأسفل */
+    padding: 40px 0;
+}
+
+.content-box {
+    background: var(--card-bg);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-bg);
+    color: #9CA3AF;
+    text-align: center;
+    padding: 25px 0;
+}
+
+/* Tables (Responsive) */
+.table-container {
+    overflow-x: auto; /* للسماح بالتمرير الأفقي في الشاشات الصغيرة */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 10px;
+    text-align: right;
+}
+
+th {
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+/* تأثير عند التمرير على الصفوف (باستثناء صف التفاصيل) */
+tbody tr:not(.app-details):hover {
+    background-color: var(--light-bg);
+}
+
+/* --- Forms and Inputs (متطلبات الوظيفة: تنسيق موحد) --- */
+
+/* تنسيق التسميات (Labels) من مكان واحد */
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-bg);
+}
+
+/* تنسيق عناصر الإدخال النصية من مكان واحد */
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-bg); /* اللون الموحد */
+    transition: border-color 0.3s;
+    /* ضمان استخدام الخط المناسب للمدخلات الإنجليزية */
+    font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
+}
+
+/* تأثير عند التركيز (Focus) */
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(60, 130, 246, 0.2);
+}
+
+/* Buttons */
+input[type="submit"],
+input[type="reset"],
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #2563EB;
+}
+
+input[type="reset"] {
+    background-color: #9CA3AF;
+}
+
+input[type="reset"]:hover {
+     background-color: #6B7280;
+}
+
+/* Validation Styles */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none;
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border-color: var(--error-color);
+    background-color: #FEF2F2;
+}
+
+.checkbox-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    accent-color: var(--primary-color);
+}
+.checkbox-container label {
+    display: inline;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+/* --- Application Details (apps.html) --- */
+
+/* إخفاء التفاصيل افتراضياً */
+.app-details {
+    display: none;
+    background-color: #F3F4F6;
+}
+
+.app-details td {
+     border-top: 3px solid var(--primary-color);
+     padding: 0;
+}
+
+/* Details Container Layout (Flexbox) */
+.details-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    gap: 30px;
+}
+
+.details-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.details-media {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Media Styling */
+.app-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* حاوية متجاوبة للفيديو المضمن (iFrame) بنسبة 16:9 */
+.media-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.media-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Toggle Button Styling */
+.toggle-details-btn {
+    background-color: var(--accent-color);
+    padding: 8px 15px;
+    margin-top: 0;
+    font-size: 0.9em;
+}
+
+.toggle-details-btn:hover {
+    background-color: #059669;
+}
+
+/* Status Message (Success) */
+.status-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #A7F3D0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    header h1 {
+        margin-bottom: 15px;
+    }
+    nav ul {
+        justify-content: center;
+    }
+}
