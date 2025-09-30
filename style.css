@@ -1,4 +1,4 @@
-/* Style.css - Final Clean & Modern Design (v7 - FORCE HIDE DETAILS FIX) */
+/* Style.css - Final Clean & Modern Design (v5 - Generic Responsive Tables) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap');
 
@@ -103,6 +103,21 @@ th, td { border-bottom: 1px solid var(--border-color); padding: 15px 10px; text-
 th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var(--heading-color); }
 .dark-mode th { background-color: color-mix(in srgb, var(--bg-color) 50%, #000); }
 
+/* --- Styles for Validation --- */
+.error-message {
+    display: none; /* لإبقائها مخفية بشكل افتراضي */
+    color: var(--error-color); /* استخدام متغير اللون الأحمر المعرف مسبقاً */
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+input.invalid, select.invalid, textarea.invalid {
+    border-color: var(--error-color) !important; /* !important لضمان تطبيق اللون */
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--error-color) 25%, transparent);
+}
+
+
 /* =====================================================
    5. قسم التفاصيل (Polished App Details Section)
    ===================================================== */
@@ -149,23 +164,21 @@ th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var
     #main-nav ul { flex-direction: column; padding: 15px; gap: 5px; }
     #main-nav ul li a { display: block; padding: 15px; }
 
+    /* --- ** تم التعديل هنا ** --- */
     /* --- Generic Table to Cards Transformation --- */
     .table-container table thead {
         display: none;
     }
     .table-container table,
     .table-container table tbody,
-    .table-container table tr,
-    .table-container table td {
+    .table-container table tr:not(.app-details) {
         display: block;
         width: 100%;
     }
-    
-    /* القاعدة الجديدة والحاسمة لضمان إخفاء التفاصيل */
-    .table-container tr.app-details {
-        display: none !important;
+    .table-container table tr:not(.app-details) > td {
+        display: block;
+        width: 100%;
     }
-
     .table-container table tr:not(.app-details) {
         margin: 0 0 20px 0;
         border-radius: 12px;
@@ -182,7 +195,7 @@ th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var
         padding: 12px 15px;
         text-align: left;
     }
-    .table-container table tr:not(.app-details):last-child {
+    .table-container table tr:not(.app-details) td:last-child {
         border-bottom: none;
     }
     .table-container table td::before {
