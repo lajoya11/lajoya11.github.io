@@ -1,4 +1,4 @@
-/* Style.css - Final Clean & Modern Design (v5 - Generic Responsive Tables) */
+/* Style.css - Final Clean & Modern Design (v7 - FORCE HIDE DETAILS FIX) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;700&display=swap');
 
@@ -149,7 +149,6 @@ th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var
     #main-nav ul { flex-direction: column; padding: 15px; gap: 5px; }
     #main-nav ul li a { display: block; padding: 15px; }
 
-    /* --- ** تم التعديل هنا ** --- */
     /* --- Generic Table to Cards Transformation --- */
     .table-container table thead {
         display: none;
@@ -161,6 +160,12 @@ th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var
         display: block;
         width: 100%;
     }
+    
+    /* القاعدة الجديدة والحاسمة لضمان إخفاء التفاصيل */
+    .table-container tr.app-details {
+        display: none !important;
+    }
+
     .table-container table tr:not(.app-details) {
         margin: 0 0 20px 0;
         border-radius: 12px;
@@ -177,7 +182,7 @@ th { background-color: color-mix(in srgb, var(--bg-color) 50%, #fff); color: var
         padding: 12px 15px;
         text-align: left;
     }
-    .table-container table tr:not(.app-details) td:last-child {
+    .table-container table tr:not(.app-details):last-child {
         border-bottom: none;
     }
     .table-container table td::before {
