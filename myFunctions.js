@@ -82,6 +82,61 @@ $(document).ready(function() {
             });
         });
     }
+
+    // --- 6. معالج سلايدر الصور في صفحة "من نحن" ---
+    if ($('.slider-container').length) {
+        let currentIndex = 0;
+        const slides = $('.slide');
+        const dotsContainer = $('.slider-dots');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        // إنشاء نقاط التنقل
+        for (let i = 0; i < totalSlides; i++) {
+            dotsContainer.append('<span class="dot"></span>');
+        }
+        const dots = $('.dot');
+
+        function showSlide(index) {
+            slides.removeClass('active');
+            dots.removeClass('active');
+            slides.eq(index).addClass('active');
+            dots.eq(index).addClass('active');
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            let newIndex = (currentIndex + 1) % totalSlides;
+            showSlide(newIndex);
+        }
+
+        function prevSlide() {
+            let newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(newIndex);
+        }
+
+        // بدء التشغيل التلقائي
+        function startAutoplay() {
+            slideInterval = setInterval(nextSlide, 5000); // تغيير الصورة كل 5 ثوان
+        }
+
+        function stopAutoplay() {
+            clearInterval(slideInterval);
+        }
+
+        // ربط الأحداث
+        $('.next-btn').click(nextSlide);
+        $('.prev-btn').click(prevSlide);
+        dots.click(function() {
+            showSlide($(this).index());
+        });
+
+        $('.slider-container').hover(stopAutoplay, startAutoplay);
+
+        // عرض الصورة الأولى عند تحميل الصفحة
+        showSlide(0);
+        startAutoplay();
+    }
 });
 
 
