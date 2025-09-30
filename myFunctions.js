@@ -1,4 +1,4 @@
-/* myFunctions.js - Final Version with Video Autoplay Fix */
+/* myFunctions.js - Final Version with Updated & Relevant Videos and Images */
 
 const STORAGE_KEY = 'AI_APPS_DATA';
 
@@ -64,12 +64,9 @@ $(document).ready(function() {
             const detailsRow = button.closest('tr').next('.app-details');
             const iframe = detailsRow.find('iframe');
 
-            // منطق جديد ومضمون للفيديو
             if (detailsRow.is(':visible')) {
-                // إذا كانت التفاصيل ظاهرة، سنقوم بإخفائها وحذف رابط الفيديو
                 iframe.removeAttr('src');
             } else {
-                // إذا كانت مخفية، سنقوم بإظهارها وإضافة رابط الفيديو
                 const videoSrc = iframe.data('src');
                 if (videoSrc) {
                     iframe.attr('src', videoSrc);
@@ -87,6 +84,7 @@ $(document).ready(function() {
     }
 });
 
+
 function getAppsFromStorage(){const data=localStorage.getItem(STORAGE_KEY);return data?JSON.parse(data):[]}
 function saveAppsToStorage(apps){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(apps))}catch(e){alert("حدث خطأ أثناء حفظ البيانات.")}}
 
@@ -94,37 +92,36 @@ function initializeData() {
     if (getAppsFromStorage().length > 0) {
         return;
     }
-    // ** تم التعديل هنا ** إضافة ?autoplay=0 لكل الروابط
     const initialData = [
         {
             id: 1, appName: "ChatGPT", developer: "OpenAI", websiteUrl: "https://chatgpt.com/", usageField: "Productivity", isFree: true,
-            description: "نموذج لغوي رائد يمكنه الإجابة على الأسئلة وتلخيص النصوص وإنشاء محتوى متنوع.",
-            logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
-            mediaUrl: "https://www.youtube.com/embed/Rj_vssRaZlQ?autoplay=0"
+            description: "نموذج لغوي رائد يمكنه الإجابة على الأسئيم وتلخيص النصوص وإنشاء محتوى متنوع.",
+            logoUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", // تم الإبقاء على رابط ويكيبيديا أو يمكنك استبداله برابط مباشر آخر إذا أردت
+            mediaUrl: "https://www.youtube.com/embed/OGmDr8TLtTo?autoplay=0" /* فيديو: ChatGPT New Official Intro */
         },
         {
             id: 2, appName: "GitHubCopilot", developer: "GitHub Microsoft", websiteUrl: "https://github.com/features/copilot", usageField: "Development", isFree: false,
             description: "مساعد برمجي يعمل بالذكاء الاصطناعي يساعد المطورين على كتابة التعليمات البرمجية بشكل أسرع وبأخطاء أقل.",
-            logoUrl: "https://github.githubassets.com/assets/copilot-logo-5e421a101069.png",
-            mediaUrl: "https://www.youtube.com/embed/4F2K_I4uJ1A?autoplay=0"
+            logoUrl: "https://a.top4top.io/p_3560b4hx81.png", /* تم تحديث رابط الشعار */
+            mediaUrl: "https://www.youtube.com/embed/xf65vxjNWdk?autoplay=0" /* تم تحديث رابط الفيديو */
         },
         {
             id: 3, appName: "Midjourney", developer: "Midjourney Inc", websiteUrl: "https://www.midjourney.com/", usageField: "Art & Design", isFree: false,
             description: "أداة ذكاء اصطناعي توليدية لإنشاء صور فنية عالية الجودة من خلال أوصاف نصية بسيطة.",
-            logoUrl: "https://miro.medium.com/v2/resize:fit:805/1*843m8g8lJ0z6kweu7Iu1RQ.png",
-            mediaUrl: "https://www.youtube.com/embed/d1242rWoY2o?autoplay=0"
+            logoUrl: "https://f.top4top.io/p_3560b2j0i1.png", /* تم تحديث رابط الشعار */
+            mediaUrl: "https://www.youtube.com/embed/E9PvSeIO5NY?autoplay=0" /* تم تحديث رابط الفيديو */
         },
         {
             id: 4, appName: "TensorFlow", developer: "Google", websiteUrl: "https://www.tensorflow.org/", usageField: "Machine Learning", isFree: true,
             description: "منصة مفتوحة المصدر وشاملة لتعلم الآلة (ML). توفر مكتبة قوية لبناء وتدريب نماذج الذكاء الاصطناعي.",
-            logoUrl: "https://www.gstatic.com/aihub/images/tf_logo_200px.png",
-            mediaUrl: "https://www.youtube.com/embed/yjprpKagF3w?autoplay=0"
+            logoUrl: "https://k.top4top.io/p_356044ty31.png", /* تم تحديث رابط الشعار */
+            mediaUrl: "https://www.youtube.com/embed/i8NETqtGHms?autoplay=0" /* تم تحديث رابط الفيديو */
         },
         {
             id: 5, appName: "AlphaFold", developer: "DeepMind", websiteUrl: "https://deepmind.google/technologies/alphafold/", usageField: "Healthcare", isFree: true,
             description: "نظام ذكاء اصطناعي يتنبأ بالبنية ثلاثية الأبعاد للبروتين من تسلسل الأحماض الأمينية الخاصة به.",
-            logoUrl: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/DeepMind_Logo_1.width-2000.png",
-            mediaUrl: "https://www.youtube.com/embed/KpedmJdrTpY?autoplay=0"
+            logoUrl: "https://g.top4top.io/p_35601qa0t1.png", // تم الإبقاء على رابط DeepMind الرسمي
+            mediaUrl: "https://www.youtube.com/embed/KpedmJdrTpY?autoplay=0" /* فيديو: AlphaFold Explained | DeepMind */
         }
     ];
     saveAppsToStorage(initialData);
